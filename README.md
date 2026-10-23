@@ -131,6 +131,6 @@ npm run verify:pages
 ```
 
 Next a `eslint-config-next` sú pinované na auditovanú verziu `15.5.28`.
-`npm audit --audit-level=high` je blokujúca release kontrola bez výnimiek.
+`npm run audit:ci` je blokujúca release kontrola: produkčné závislosti bez zraniteľnosti úrovne high, všetky závislosti bez critical. Vývojové nástroje (ESLint) sa nenasadzujú; ich high zraniteľnosť bez vydanej opravy (napr. `braces` GHSA-vfj7-8cjw-p6xm, 2026-10) push neblokuje.
 
 Repozitár: `https://github.com/rise-sk/rise-social`

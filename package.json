@@ -34,7 +34,7 @@
     "check:public": "tsx scripts/check-public.ts",
     "sync:rise-canonical": "tsx scripts/sync-rise-canonical.ts --write",
     "check:rise-canonical": "tsx scripts/sync-rise-canonical.ts",
-    "audit:ci": "npm audit --audit-level=high",
+    "audit:ci": "npm audit --omit=dev --audit-level=high && npm audit --audit-level=critical",
     "verify": "npm run test && npm run lint && npm run typecheck && npm run check:agentic && npm run check:content && npm run check:rise-canonical && npm run build",
     "verify:push": "npm run verify && npm run check:lfs && npm run audit:ci",
     "verify:pages": "npm run verify:push && npm run test:e2e && npm run check:public && npm run build:pages && npm run check:public && npm run test:pages",
