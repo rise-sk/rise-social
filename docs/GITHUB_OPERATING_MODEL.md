@@ -30,5 +30,5 @@ pre-push gate a chránené Pages prostredie zostávajú povinnou kontrolnou vrst
 
 ## Kontrola závislostí
 
-Next a `eslint-config-next` sú pinované na auditovanú verziu `15.5.21`.
+Next a `eslint-config-next` sú pinované na auditovanú verziu `15.5.28`.
 `npm audit --audit-level=high` zostáva blokujúcou kontrolou bez výnimiek.

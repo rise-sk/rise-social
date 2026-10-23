@@ -130,7 +130,7 @@ npm run verify:push
 npm run verify:pages
 ```
 
-Next a `eslint-config-next` sú pinované na auditovanú verziu `15.5.21`.
+Next a `eslint-config-next` sú pinované na auditovanú verziu `15.5.28`.
 `npm audit --audit-level=high` je blokujúca release kontrola bez výnimiek.
 
 Repozitár: `https://github.com/rise-sk/rise-social`

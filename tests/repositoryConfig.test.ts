@@ -16,8 +16,8 @@ describe('repository safety configuration', () => {
     };
     const ci = readFileSync(join(root, '.github', 'workflows', 'ci.yml'), 'utf8');
 
-    expect(packageJson.dependencies.next).toBe('15.5.21');
-    expect(packageJson.devDependencies['eslint-config-next']).toBe('15.5.21');
+    expect(packageJson.dependencies.next).toBe('15.5.28');
+    expect(packageJson.devDependencies['eslint-config-next']).toBe('15.5.28');
     for (const script of [
       'verify',
       'verify:push',
