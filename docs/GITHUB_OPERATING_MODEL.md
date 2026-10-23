@@ -2,7 +2,7 @@
 
 Verejný repozitár drží kód, pravidlá, branding, skills, schémy a iba schválené
 balíky. GitHub Pages je statická read-only prezentácia na
-`https://marosko123.github.io/rise-social/`. JetBrains YouTrack `RISE` drží stav,
+`https://rise-sk.github.io/rise-social/`. JetBrains YouTrack `RISE` drží stav,
 vlastníka a termín taskov. SQLite drží drafty, neúspešné runy a dočasné receipts
 iba lokálne. GitHub Issues a Projects nie sú druhý task source.
 

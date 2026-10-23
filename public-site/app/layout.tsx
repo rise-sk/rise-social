@@ -6,7 +6,7 @@ import '@fontsource/inter/latin-700.css';
 import '@fontsource/playfair-display/latin-500.css';
 import '../../src/app/globals.css';
 
-const PUBLIC_ORIGIN = 'https://marosko123.github.io';
+const PUBLIC_ORIGIN = 'https://rise-sk.github.io';
 const PUBLIC_PATH = '/rise-social';
 const PUBLIC_URL = `${PUBLIC_ORIGIN}${PUBLIC_PATH}/`;
 

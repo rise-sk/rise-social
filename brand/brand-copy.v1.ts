@@ -3,7 +3,7 @@ export const RISE_BRAND_COPY_V1 = {
   id: 'rise-brand-copy-sk-v1',
   locale: 'sk',
   checkedAt: '2026-07-26',
-  canonicalUrl: 'https://marosko123.github.io/rise-social/brand-copy.json',
+  canonicalUrl: 'https://rise-sk.github.io/rise-social/brand-copy.json',
   sourceFiles: [
     {
       role: 'brand-copy',

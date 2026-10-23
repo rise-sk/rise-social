@@ -153,13 +153,13 @@ describe('Rise Instagram application carousel contract', () => {
     };
 
     expect(contract.instagramCarouselPlaybookUrl).toBe(
-      'https://marosko123.github.io/rise-social/instagram-carousel-playbook.json',
+      'https://rise-sk.github.io/rise-social/instagram-carousel-playbook.json',
     );
     expect(contract.brandAssetManifestUrl).toBe(
-      'https://marosko123.github.io/rise-social/brand-assets.json',
+      'https://rise-sk.github.io/rise-social/brand-assets.json',
     );
     expect(contract.brandCopyUrl).toBe(
-      'https://marosko123.github.io/rise-social/brand-copy.json',
+      'https://rise-sk.github.io/rise-social/brand-copy.json',
     );
     expect(PUBLIC_BRAND_COPY.projects).toHaveLength(11);
     expect(

@@ -84,7 +84,7 @@ jobs:
     steps:
       - name: Verify public Pages routes and markers
         env:
-          BASE_URL: https://marosko123.github.io/rise-social/
+          BASE_URL: https://rise-sk.github.io/rise-social/
           EXPECTED_SHA: ${{ github.sha }}
         run: |
           smoke_dir="$(mktemp -d)"

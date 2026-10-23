@@ -1,4 +1,4 @@
-const PUBLIC_BASE_URL = 'https://marosko123.github.io/rise-social';
+const PUBLIC_BASE_URL = 'https://rise-sk.github.io/rise-social';
 
 export type PublicChatGptContextV2 = {
   schemaVersion: '2.0';

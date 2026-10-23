@@ -14,7 +14,7 @@ export {
   type PublicStarterPack,
 } from '@/public/chatGptContext';
 
-const PUBLIC_BASE_URL = 'https://marosko123.github.io/rise-social';
+const PUBLIC_BASE_URL = 'https://rise-sk.github.io/rise-social';
 const RISE_ORIGIN = 'https://rise.sk';
 const RIGHTS_CHECKED_AT = RISE_ASSET_CATALOG.checkedAt.slice(0, 10);
 const BLOCKED_PROJECTS = new Set([

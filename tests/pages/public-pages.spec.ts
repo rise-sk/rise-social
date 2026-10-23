@@ -3,7 +3,7 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
 const PAGES_ORIGIN = 'http://127.0.0.1:4183';
-const PUBLIC_ORIGIN = 'https://marosko123.github.io';
+const PUBLIC_ORIGIN = 'https://rise-sk.github.io';
 const BASE_PATH = '/rise-social';
 
 test.describe('GitHub Pages public presentation', () => {

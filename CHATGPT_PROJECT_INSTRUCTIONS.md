@@ -20,15 +20,15 @@ Use the dedicated `rise-linkedin-post`, `rise-instagram-post` and
 When only public GitHub Pages context is available, load these canonical sources
 before creating a visual:
 
-- `https://marosko123.github.io/rise-social/visual-playbook.json`
-- `https://marosko123.github.io/rise-social/visual-assets.json`
-- `https://marosko123.github.io/rise-social/brand-copy.json`
-- `https://marosko123.github.io/rise-social/brand-assets.json`
-- `https://marosko123.github.io/rise-social/content-plan/`
+- `https://rise-sk.github.io/rise-social/visual-playbook.json`
+- `https://rise-sk.github.io/rise-social/visual-assets.json`
+- `https://rise-sk.github.io/rise-social/brand-copy.json`
+- `https://rise-sk.github.io/rise-social/brand-assets.json`
+- `https://rise-sk.github.io/rise-social/content-plan/`
 - the exact `https://rise.sk/portfolio/...` case study selected by the manifest.
 
 For a professional application carousel, additionally load
-`https://marosko123.github.io/rise-social/instagram-carousel-playbook.json` and
+`https://rise-sk.github.io/rise-social/instagram-carousel-playbook.json` and
 read `brand/instagram-carousel-playbook.v1.ts`. Use `app-case-study`: cover →
 problem → scope → flow → UI detail → optional decision → evidence. Use six
 slides only when the sourced decision is unavailable. Keep cover at 3–7 words,

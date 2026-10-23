@@ -1,4 +1,4 @@
-const PUBLIC_BASE = 'https://marosko123.github.io/rise-social/brand';
+const PUBLIC_BASE = 'https://rise-sk.github.io/rise-social/brand';
 
 type BrandAsset = {
   id: string;
@@ -113,7 +113,7 @@ export const RISE_BRAND_ASSET_MANIFEST_V1 = {
   id: 'rise-brand-assets-v1',
   checkedAt: '2026-07-26',
   canonicalUrl:
-    'https://marosko123.github.io/rise-social/brand-assets.json',
+    'https://rise-sk.github.io/rise-social/brand-assets.json',
   source:
     'Explicitný allowlist presných bajtov z verejného lokálneho zdrojového Rise.sk repa.',
   policy:

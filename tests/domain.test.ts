@@ -307,7 +307,7 @@ describe('RunRepository', () => {
         provider: 'github',
         issueId: '9',
         issueNumber: 9,
-        issueUrl: 'https://github.com/Marosko123/rise-social/issues/9',
+        issueUrl: 'https://github.com/rise-sk/rise-social/issues/9',
       },
       receipt: {
         runId: run.id,

@@ -5,7 +5,7 @@ import { RISE_CONTENT_PLAN } from '@/contentPlan/plan';
 import { createDemoRun } from '@/demo/createDemoRun';
 import { createPublicReviewModel } from '@/public/publicReviewModel';
 
-const REVIEW_URL = 'https://marosko123.github.io/rise-social/review/';
+const REVIEW_URL = 'https://rise-sk.github.io/rise-social/review/';
 
 export const metadata: Metadata = {
   title: 'Read-only kontrolné štúdio',

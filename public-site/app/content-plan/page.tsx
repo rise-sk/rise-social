@@ -4,7 +4,7 @@ import { ContentPlanStudio } from '@/components/ContentPlanStudio';
 import { RISE_CONTENT_PLAN } from '@/contentPlan/plan';
 
 const CONTENT_PLAN_URL =
-  'https://marosko123.github.io/rise-social/content-plan/';
+  'https://rise-sk.github.io/rise-social/content-plan/';
 
 export const metadata: Metadata = {
   title: '90-dňový content plán',
