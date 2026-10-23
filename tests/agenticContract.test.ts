@@ -101,10 +101,10 @@ describe('portable agentic contract', () => {
     );
     expect(chatgpt).toContain(playbookPath);
     expect(chatgpt).toContain(
-      'https://marosko123.github.io/rise-social/visual-playbook.json',
+      'https://rise-sk.github.io/rise-social/visual-playbook.json',
     );
     expect(chatgpt).toContain(
-      'https://marosko123.github.io/rise-social/visual-assets.json',
+      'https://rise-sk.github.io/rise-social/visual-assets.json',
     );
     expect(chatgpt).toContain('“vytvor obrázok”');
 
@@ -132,9 +132,9 @@ describe('portable agentic contract', () => {
     );
     for (const marker of [
       carouselPlaybook,
-      'https://marosko123.github.io/rise-social/instagram-carousel-playbook.json',
-      'https://marosko123.github.io/rise-social/brand-assets.json',
-      'https://marosko123.github.io/rise-social/brand-copy.json',
+      'https://rise-sk.github.io/rise-social/instagram-carousel-playbook.json',
+      'https://rise-sk.github.io/rise-social/brand-assets.json',
+      'https://rise-sk.github.io/rise-social/brand-copy.json',
     ]) {
       expect(chatgpt).toContain(marker);
     }

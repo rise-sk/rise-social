@@ -13,7 +13,7 @@ software, products, data and delivery dominant. The profile identity is
 návrhu po prevádzku.”
 
 In public ChatGPT context, load the canonical contract from
-`https://marosko123.github.io/rise-social/visual-playbook.json`. For an
+`https://rise-sk.github.io/rise-social/visual-playbook.json`. For an
 application carousel also load `/brand-copy.json`, `/brand-assets.json` and
 `/instagram-carousel-playbook.json` before the exact case study.
 

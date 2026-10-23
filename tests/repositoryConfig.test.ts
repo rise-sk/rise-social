@@ -16,8 +16,8 @@ describe('repository safety configuration', () => {
     };
     const ci = readFileSync(join(root, '.github', 'workflows', 'ci.yml'), 'utf8');
 
-    expect(packageJson.dependencies.next).toBe('15.5.21');
-    expect(packageJson.devDependencies['eslint-config-next']).toBe('15.5.21');
+    expect(packageJson.dependencies.next).toBe('15.5.28');
+    expect(packageJson.devDependencies['eslint-config-next']).toBe('15.5.28');
     for (const script of [
       'verify',
       'verify:push',
@@ -62,7 +62,7 @@ describe('repository safety configuration', () => {
       'utf8',
     );
 
-    expect(packageJson.scripts['audit:ci']).toBe('npm audit --audit-level=high');
+    expect(packageJson.scripts['audit:ci']).toBe('npm audit --omit=dev --audit-level=high && npm audit --audit-level=critical');
     expect(packageJson.scripts['audit:known-next']).toBeUndefined();
     expect(readme).not.toContain('15.5.20');
     expect(operatingModel).not.toContain('Dočasná Next výnimka');

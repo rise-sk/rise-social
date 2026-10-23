@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { VisualPlaybook } from '@/components/VisualPlaybook';
 
 const VISUAL_PLAYBOOK_URL =
-  'https://marosko123.github.io/rise-social/visual-playbook/';
+  'https://rise-sk.github.io/rise-social/visual-playbook/';
 
 export const metadata: Metadata = {
   title: 'Rise Visual System pre ChatGPT',

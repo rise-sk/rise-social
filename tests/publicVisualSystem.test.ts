@@ -77,7 +77,7 @@ describe('ChatGPT-ready public Rise visual system', () => {
       'disabled-for-product-posts',
     );
     expect(PUBLIC_CHATGPT_CONTEXT.canonicalUrls.starterPack).toBe(
-      'https://marosko123.github.io/rise-social/starter-pack.json',
+      'https://rise-sk.github.io/rise-social/starter-pack.json',
     );
 
     const markdown = renderPublicChatGptContextMarkdown();
@@ -176,18 +176,18 @@ describe('ChatGPT-ready public Rise visual system', () => {
 
   test('exposes a complete machine contract and compact LLM document', () => {
     expect(PUBLIC_VISUAL_PLAYBOOK.canonicalUrl).toBe(
-      'https://marosko123.github.io/rise-social/visual-playbook.json',
+      'https://rise-sk.github.io/rise-social/visual-playbook.json',
     );
     expect(PUBLIC_VISUAL_PLAYBOOK).toMatchObject({
       instagramCarouselPlaybookUrl:
-        'https://marosko123.github.io/rise-social/instagram-carousel-playbook.json',
+        'https://rise-sk.github.io/rise-social/instagram-carousel-playbook.json',
       brandAssetManifestUrl:
-        'https://marosko123.github.io/rise-social/brand-assets.json',
+        'https://rise-sk.github.io/rise-social/brand-assets.json',
       brandCopyUrl:
-        'https://marosko123.github.io/rise-social/brand-copy.json',
+        'https://rise-sk.github.io/rise-social/brand-copy.json',
     });
     expect(PUBLIC_VISUAL_PLAYBOOK.chatGptContextUrl).toBe(
-      'https://marosko123.github.io/rise-social/chatgpt-context.json',
+      'https://rise-sk.github.io/rise-social/chatgpt-context.json',
     );
     expect(PUBLIC_VISUAL_PLAYBOOK.playbook.chatGptWorkflow.steps).toEqual([
       'brand-context',

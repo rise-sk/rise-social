@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { InstagramCarouselPlaybook } from '@/components/InstagramCarouselPlaybook';
 
 const CANONICAL_URL =
-  'https://marosko123.github.io/rise-social/instagram-carousel-playbook/';
+  'https://rise-sk.github.io/rise-social/instagram-carousel-playbook/';
 
 export const metadata: Metadata = {
   title: 'Rise Instagram Carousel Playbook',

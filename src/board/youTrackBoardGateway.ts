@@ -98,7 +98,7 @@ export class YouTrackBoardGateway implements BoardGateway {
       '## Content run',
       '',
       `Run ID: \`${runId}\``,
-      `Repository: \`Marosko123/rise-social\``,
+      `Repository: \`rise-sk/rise-social\``,
       `Lokálny review: http://127.0.0.1:4173/?run=${encodeURIComponent(runId)}`,
       '',
       '## Brief',

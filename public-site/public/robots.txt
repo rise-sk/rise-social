@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://marosko123.github.io/rise-social/sitemap.xml
+Sitemap: https://rise-sk.github.io/rise-social/sitemap.xml

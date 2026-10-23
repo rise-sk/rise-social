@@ -22,15 +22,15 @@ Vizuálny playbook: `http://127.0.0.1:4173/content-plan#visual-generation-title`
 Aplikácia počúva iba na `127.0.0.1`. Bez cloudu funguje výskum, lokálny review,
 manuálne schválenie aj export PNG/PDF.
 
-Verejná prezentácia: `https://marosko123.github.io/rise-social/`
+Verejná prezentácia: `https://rise-sk.github.io/rise-social/`
 
 GitHub Pages obsahuje iba statický content plán a bezpečnú read-only ukážku
 reviewu. Verejný ChatGPT-ready vizuálny systém je na:
 
-- `https://marosko123.github.io/rise-social/visual-playbook/`
-- `https://marosko123.github.io/rise-social/visual-playbook.json`
-- `https://marosko123.github.io/rise-social/visual-playbook.md`
-- `https://marosko123.github.io/rise-social/visual-assets.json`
+- `https://rise-sk.github.io/rise-social/visual-playbook/`
+- `https://rise-sk.github.io/rise-social/visual-playbook.json`
+- `https://rise-sk.github.io/rise-social/visual-playbook.md`
+- `https://rise-sk.github.io/rise-social/visual-assets.json`
 
 Neobsahuje SQLite, lokálne runy, API, AI runner, schvaľovanie, export, Buffer,
 plánovanie ani publikovanie. Asset manifest nezverejňuje interné práva ani
@@ -130,7 +130,7 @@ npm run verify:push
 npm run verify:pages
 ```
 
-Next a `eslint-config-next` sú pinované na auditovanú verziu `15.5.21`.
-`npm audit --audit-level=high` je blokujúca release kontrola bez výnimiek.
+Next a `eslint-config-next` sú pinované na auditovanú verziu `15.5.28`.
+`npm run audit:ci` je blokujúca release kontrola: produkčné závislosti bez zraniteľnosti úrovne high, všetky závislosti bez critical. Vývojové nástroje (ESLint) sa nenasadzujú; ich high zraniteľnosť bez vydanej opravy (napr. `braces` GHSA-vfj7-8cjw-p6xm, 2026-10) push neblokuje.
 
-Repozitár: `https://github.com/Marosko123/rise-social`
+Repozitár: `https://github.com/rise-sk/rise-social`

@@ -34,7 +34,7 @@ describe('GitHub workflow supply-chain baseline', () => {
   test('never cancels an in-flight publish and smoke-tests the exact live revision', () => {
     expect(workflow).toContain('cancel-in-progress: false');
     expect(workflow).toContain('needs: publish');
-    expect(workflow).toContain('https://marosko123.github.io/rise-social/');
+    expect(workflow).toContain('https://rise-sk.github.io/rise-social/');
     expect(workflow).toContain('deployment.txt');
     expect(workflow).toContain('EXPECTED_SHA: ${{ github.sha }}');
     expect(workflow).toContain('fetch "content-plan/"');

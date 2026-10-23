@@ -2,7 +2,7 @@
 
 Verejný repozitár drží kód, pravidlá, branding, skills, schémy a iba schválené
 balíky. GitHub Pages je statická read-only prezentácia na
-`https://marosko123.github.io/rise-social/`. JetBrains YouTrack `RISE` drží stav,
+`https://rise-sk.github.io/rise-social/`. JetBrains YouTrack `RISE` drží stav,
 vlastníka a termín taskov. SQLite drží drafty, neúspešné runy a dočasné receipts
 iba lokálne. GitHub Issues a Projects nie sú druhý task source.
 
@@ -30,5 +30,5 @@ pre-push gate a chránené Pages prostredie zostávajú povinnou kontrolnou vrst
 
 ## Kontrola závislostí
 
-Next a `eslint-config-next` sú pinované na auditovanú verziu `15.5.21`.
-`npm audit --audit-level=high` zostáva blokujúcou kontrolou bez výnimiek.
+Next a `eslint-config-next` sú pinované na auditovanú verziu `15.5.28`.
+`npm run audit:ci` zostáva blokujúcou kontrolou: produkčné závislosti na úrovni high, všetky závislosti na úrovni critical.
