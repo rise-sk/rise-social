@@ -1,136 +1,95 @@
 # Rise Social Studio
 
-Lokálne, schvaľovaním chránené štúdio pre organický obsah Rise.sk. Predvolene vytvorí
-jeden zdrojovaný master post; kampaň s dvoma až troma postmi vznikne iba pri dostatku
-rôznych dôkazov. Každý post má osobitné verzie pre LinkedIn, Instagram a Facebook.
-GitHub repozitár je verejný kvôli bezplatnej read-only GitHub Pages prezentácii;
-tasky patria do JetBrains YouTrack projektu `RISE`.
+A local studio that drafts Slovak social posts for rise.sk from public sources, with a person approving each one before export.
 
-## Spustenie
+Public read-only site: https://rise-sk.github.io/rise-social/ | [Visual playbook](https://rise-sk.github.io/rise-social/visual-playbook/) | [Content plan](https://rise-sk.github.io/rise-social/content-plan/)
+
+<p>
+  <img src="docs/images/desktop.png" alt="The public read-only site: the rise.sk brand context every draft and image must follow" width="74%">
+  <img src="docs/images/phone.png" alt="The public site at phone width" width="23%">
+</p>
+
+## Why it exists
+
+The studio prepares rise.sk posts about its software and products for LinkedIn, Instagram and Facebook. Each post has to be accurate, traceable to public sources and read by a person before it goes out. The studio does the research and drafting in steps, keeps the evidence next to every claim, and stops at a human approval before anything is exported or scheduled. It is built for the rise.sk team that writes and approves these posts.
+
+## What it does
+
+- Starts from one topic. By default it writes one post. In auto mode it writes a campaign of 2 to 3 posts only when the research has enough distinct evidence. `--mode campaign` asks for a campaign directly.
+- Stops high-risk briefs before drafting. Client results, metrics, regulated topics, competitors, non-public stories, named people and generated images need a human brief review first.
+- Keeps a claim ledger built from public sources only. Each claim has a stable ID, its source URL, the checked date, a risk level and an expiry date one year after the check.
+- Writes separate LinkedIn, Instagram and Facebook versions in Slovak, in the formal form, following `docs/EDITORIAL_RULES_SK.md`.
+- Renders the carousel slides as 1080 x 1350 px PNG files and a PDF, both with Playwright. The PDF is the document format for LinkedIn.
+- Runs one independent critique and one final validation. The author and critic roles alternate between the Codex and Claude CLIs from run to run.
+- Export needs an approval in the browser. The approval is a SHA-256 digest of the draft pack, so any change to text, sources, visuals or rights needs a new one.
+- Optional: YouTrack task sync (dry run unless `--apply`), Buffer drafts and scheduling after a separate approval, and Cloudinary media for Buffer. Manual export works without them.
+
+## Stack
+
+| Part | Technology |
+|---|---|
+| Language and runtime | TypeScript 5.9.3 on Node.js 24 or newer, npm 11 or newer |
+| Review app | Next.js 15.5.28, React 19.2.7 |
+| CLI | Commander 14.0.3, run with tsx 4.23.1 |
+| Validation | Zod 4.4.3 |
+| Storage | SQLite through Node's built-in `node:sqlite`, file `data/studio.sqlite` |
+| Rendering and export | Playwright (playwright-core 1.61.1), archiver 7.0.1 |
+| Source reading | cheerio 1.2.0, for HTML from public sources |
+| Public site | Next.js static export for GitHub Pages |
+| Tests and lint | Vitest 4.1.10, Playwright Test 1.61.1, ESLint 9.39.5 |
+| AI runners | Codex CLI and Claude CLI, installed and signed in on your machine |
+| Optional services | JetBrains YouTrack, Buffer GraphQL API, Cloudinary |
+
+## Run it locally
+
+You need Node.js 24 or newer. For real briefs you also need the Codex and Claude CLIs, signed in. `npm run rise-social -- doctor` lists what is missing.
 
 ```bash
-npm install
-npx playwright install chromium
-cp .env.example .env.local
+npm ci
+npx playwright install chromium   # needed for PNG and PDF export
 npm run dev
 ```
 
-Review: `http://127.0.0.1:4173/review`
-Content plán: `http://127.0.0.1:4173/content-plan`
-Vizuálny playbook: `http://127.0.0.1:4173/content-plan#visual-generation-title`
+Open http://127.0.0.1:4173/review. With no run selected, the page opens a demo run, so you can look around the review flow without any model call.
 
-Aplikácia počúva iba na `127.0.0.1`. Bez cloudu funguje výskum, lokálny review,
-manuálne schválenie aj export PNG/PDF.
-
-Verejná prezentácia: `https://rise-sk.github.io/rise-social/`
-
-GitHub Pages obsahuje iba statický content plán a bezpečnú read-only ukážku
-reviewu. Verejný ChatGPT-ready vizuálny systém je na:
-
-- `https://rise-sk.github.io/rise-social/visual-playbook/`
-- `https://rise-sk.github.io/rise-social/visual-playbook.json`
-- `https://rise-sk.github.io/rise-social/visual-playbook.md`
-- `https://rise-sk.github.io/rise-social/visual-assets.json`
-
-Neobsahuje SQLite, lokálne runy, API, AI runner, schvaľovanie, export, Buffer,
-plánovanie ani publikovanie. Asset manifest nezverejňuje interné práva ani
-citlivé poznámky.
-
-## Pracovný tok
+To prepare a run from your own topic:
 
 ```bash
-npm run rise-social -- doctor
-
-# Offline ukážka bez modelov
-npm run rise-social -- prepare "Ukážka" --demo
-
-# Verejný výskum + adaptívny single post + striedajúci sa autor/kritik
-npm run rise-social -- prepare "Kedy modernizovať existujúci systém" \
-  --mode auto \
-  --audience owners \
-  --goal consideration
-
-# Kanonický verejný projekt automaticky doplní jeho case-study URL
-npm run rise-social -- prepare "Čo ukáže mapa lepšie než tabuľka" \
-  --project mapatrhu
-
-# Mini-kampaň je najviac trojpostová a neobchádza zdrojové ani review brány
-npm run rise-social -- prepare "Modernizovať alebo prepisovať" \
-  --mode campaign \
-  --project slates
-
-# Vlastný verejný HTTPS zdroj
-npm run rise-social -- prepare "Konkrétny brief" \
-  --source https://rise.sk/portfolio/grant-ai
-
-npm run rise-social -- review
-npm run rise-social -- export <run-id>
-npm run rise-social -- archive <run-id>
+npm run rise-social -- prepare "<topic>" --goal consideration
+npm run rise-social -- review   # opens the review page (uses macOS open)
 ```
 
-Sekvencia je human-gated a adaptívna:
+Settings for the optional services go in `.env.local`, copied from `.env.example`. The studio runs without them.
 
-`topic → business brief → risk gate → research → claim ledger → continuity → visual directions → asset rights → draft → platform variants → render → independent critique → one revision → independent validation → human approval → export/schedule approval → measurement`
-
-Platformové varianty používajú samostatné skills:
-
-- `rise-linkedin-post`: odborná perspektíva, dôkaz, PDF dokument;
-- `rise-instagram-post`: 1080×1350 carousel, alt text, grid a „odkaz v profile“;
-- `rise-facebook-post`: kratší konverzačný text a zoradené obrázky.
-
-Detailné pravidlá a zdroje sú v `docs/PLATFORM_PLAYBOOK.md`.
-
-## YouTrack
+## Checks
 
 ```bash
-# Bez mutácie
-npm run rise-social -- board sync <run-id>
-
-# Explicitný idempotentný sync do RISE
-npm run rise-social -- board sync <run-id> --apply
+npm run verify        # tests, lint, typecheck, contract checks and build
+npm run test:e2e      # browser tests, needs the Chromium install above
+npm run verify:push   # verify, plus the Git LFS size check and the production dependency audit
+npm run verify:pages  # what CI runs for the GitHub Pages site
+npm run hooks:install # enables the pre-push hook in .githooks
 ```
 
-`prepare` sa môže pokúsiť vytvoriť issue automaticky. Bez
-`RISE_SOCIAL_YOUTRACK_TOKEN` pokračuje lokálne a uloží `boardSync=pending`.
-Podrobnosti sú v `docs/YOUTRACK_WORKFLOW.md`.
+## How it runs
 
-## História a schválený archív
+- Local only: `dev` and `start` bind to 127.0.0.1:4173, and the server accepts changes only from that origin. Runs, drafts and exports stay in git-ignored files under `data/`.
+- Public site: `public-site/` is a static Next.js export under the `/rise-social` base path. Pull requests run the checks. A push to `main` runs them again, builds the site and publishes it to the `gh-pages` branch of this repository.
+- The studio is not deployed anywhere. It runs on the machine of the person who approves the content, and GitHub Pages serves only the read-only site.
 
-```bash
-npm run rise-social -- history import <history.json|history.csv>
-npm run rise-social -- archive <run-id>
-```
+## Repo map
 
-Drafty a chyby ostávajú v ignorovanej SQLite. Do `content/approved` sa dostane iba
-aktuálny browser-approved, non-demo pack. PNG/PDF v tomto adresári používa Git LFS;
-pre-push gate zablokuje lokálny súčet nad 10 GiB a nikdy nezapne platenie.
+| Path | What is in it |
+|---|---|
+| `src/` | Review app, CLI, domain rules, AI runners, rendering, export and publishing |
+| `public-site/` | Static site published to GitHub Pages |
+| `brand/` | Brand tokens, Slovak voice, asset manifests and visual playbooks |
+| `.agents/skills/` | Skills for each workflow step and each platform |
+| `.agentic/` | Shared workflow contract: stages, human gates and evals |
+| `content/approved/` | Archived approved packs, PNG and PDF files in Git LFS |
+| `docs/` | Workflow, editorial rules, platform playbook and YouTrack workflow, mostly in Slovak |
+| `scripts/` | Contract, content, LFS and public-output checks |
+| `tests/` | Vitest and Playwright tests |
+| `youtrack/templates/` | YouTrack issue templates |
 
-## Voliteľný Buffer a Cloudinary
-
-```bash
-# Iba Buffer drafty aktuálneho schváleného adaptívneho balíka
-npm run rise-social -- stage <run-id>
-
-# Po novej samostatnej approval
-npm run rise-social -- schedule <run-id>
-
-npm run rise-social -- cleanup
-```
-
-Cloudinary sa používa iba pre schválené médiá potrebné Bufferom. Partial failure sa
-zastaví na manuálne zosúladenie. Modelové procesy nikdy nedostanú GitHub, YouTrack,
-Buffer, Cloudinary ani provider credentials.
-
-## Kontroly
-
-```bash
-npm run verify
-npm run test:e2e
-npm run verify:push
-npm run verify:pages
-```
-
-Next a `eslint-config-next` sú pinované na auditovanú verziu `15.5.28`.
-`npm run audit:ci` je blokujúca release kontrola: produkčné závislosti bez zraniteľnosti úrovne high, všetky závislosti bez critical. Vývojové nástroje (ESLint) sa nenasadzujú; ich high zraniteľnosť bez vydanej opravy (napr. `braces` GHSA-vfj7-8cjw-p6xm, 2026-10) push neblokuje.
-
-Repozitár: `https://github.com/rise-sk/rise-social`
+Read [AGENTS.md](AGENTS.md) first for the rules that apply to people and agents, then [docs/WORKFLOW.md](docs/WORKFLOW.md) for the step-by-step flow.
