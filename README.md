@@ -31,7 +31,7 @@ The studio prepares rise.sk posts about its software and products for LinkedIn, 
 | Language and runtime | TypeScript 5.9.3 on Node.js 24 or newer, npm 11 or newer |
 | Review app | Next.js 15.5.28, React 19.2.7 |
 | CLI | Commander 14.0.3, run with tsx 4.23.1 |
-| Validation | Zod 4.4.3 |
+| Validation | Zod 4.6.7 |
 | Storage | SQLite through Node's built-in `node:sqlite`, file `data/studio.sqlite` |
 | Rendering and export | Playwright (playwright-core 1.61.1), archiver 7.0.1 |
 | Source reading | cheerio 1.2.0, for HTML from public sources |
